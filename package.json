@@ -25,7 +25,10 @@
     "react-icons": "^5.3.0",
     "react-pro-sidebar": "^1.1.0",
     "react-router-dom": "^6.26.1",
-    "tailwindcss": "^3.4.10"
+    "tailwindcss": "^3.4.10",
+    "vis": "^4.21.0-EOL",
+    "vis-data": "^7.1.9",
+    "vis-network": "^9.1.9"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^1.0.2",
