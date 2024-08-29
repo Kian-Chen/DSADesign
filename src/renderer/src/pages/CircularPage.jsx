@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Network, DataSet } from 'vis-network/standalone'
+import '../css/SinglyLinkPage.css'
+
 
 // 定义循环链表节点
 class CircularListNode {
@@ -253,15 +255,12 @@ const CircularPage = () => {
     }
 
     return (
-        <div style={{ display: 'flex', height: '90vh' }}>
-            <div style={{ flex: 1, padding: '10px', height: '100%' }}>
+        <div className="container">
+            <div className="network-container" ref={networkContainer} />
+            <div className="controls">
                 <h1>Circular Linked List Visualization</h1>
-                <div ref={networkContainer} style={{ height: '90%', border: '1px solid #ccc' }} />
-            </div>
-            <div style={{ flex: 1, padding: '10px', height: '100%' }}>
-                <h2>Commands</h2>
 
-                <div style={{ marginBottom: '10px' }}>
+                <div className="control-group">
                     <h3>Insert Node</h3>
                     <label htmlFor="insertValue">Value:</label>
                     <input
@@ -269,23 +268,18 @@ const CircularPage = () => {
                         id="insertValue"
                         value={insertValue}
                         onChange={(e) => setInsertValue(e.target.value)}
-                        style={{ marginLeft: '10px' }}
                     />
-                    <br />
                     <label htmlFor="insertPosition">Position:</label>
                     <input
                         type="number"
                         id="insertPosition"
                         value={insertPosition}
                         onChange={(e) => setInsertPosition(e.target.value)}
-                        style={{ marginLeft: '10px' }}
                     />
-                    <button onClick={handleInsert} style={{ marginLeft: '10px' }}>
-                        Insert
-                    </button>
+                    <button onClick={handleInsert}>Insert</button>
                 </div>
 
-                <div style={{ marginBottom: '10px' }}>
+                <div className="control-group">
                     <h3>Find Node</h3>
                     <label htmlFor="findValue">Value:</label>
                     <input
@@ -293,14 +287,11 @@ const CircularPage = () => {
                         id="findValue"
                         value={findValue}
                         onChange={(e) => setFindValue(e.target.value)}
-                        style={{ marginLeft: '10px' }}
                     />
-                    <button onClick={handleFind} style={{ marginLeft: '10px' }}>
-                        Find
-                    </button>
+                    <button onClick={handleFind}>Find</button>
                 </div>
 
-                <div style={{ marginBottom: '10px' }}>
+                <div className="control-group">
                     <h3>Remove Node</h3>
                     <label htmlFor="removeValue">Value:</label>
                     <input
@@ -308,26 +299,23 @@ const CircularPage = () => {
                         id="removeValue"
                         value={removeValue}
                         onChange={(e) => setRemoveValue(e.target.value)}
-                        style={{ marginLeft: '10px' }}
                     />
-                    <button onClick={handleRemove} style={{ marginLeft: '10px' }}>
-                        Remove
-                    </button>
+                    <button onClick={handleRemove}>Remove</button>
                 </div>
 
-                <div>
+                <div className="results">
                     <h3>Results</h3>
                     <p>{findResult}</p>
                     <p>{removeResult}</p>
                 </div>
 
                 <h2>Output</h2>
-                <div style={{ maxHeight: '16vh', overflowY: 'auto' }}>
+                <div className="output">
                     <pre>{JSON.stringify(output, null, 2)}</pre>
                 </div>
 
                 <h2>Command History</h2>
-                <div style={{ maxHeight: '20vh', overflowY: 'auto' }}>
+                <div className="command-history">
                     <ul>
                         {commands.map((cmd, index) => (
                             <li key={index}>{`${cmd.command}(${cmd.args.join(', ')})`}</li>
@@ -336,7 +324,7 @@ const CircularPage = () => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default CircularPage
