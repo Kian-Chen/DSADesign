@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import Dashboard from './pages/Dashboard.jsx'
 import SinglyLinkPage from './pages/SinglyLinkPage.jsx'
@@ -35,7 +35,7 @@ const App = () => {
     }
 
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Sidebar>
                 <Routes>
                     <Route
@@ -71,7 +71,7 @@ const App = () => {
                     <Route path="/about" element={<About />} />
                 </Routes>
             </Sidebar>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
